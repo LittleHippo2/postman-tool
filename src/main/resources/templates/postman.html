@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口调试工具</title>
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/bootstrap-3.3.5/css/bootstrap.css">
+
+    <!--<link rel="stylesheet" href="../static/layui/css/layui.css">-->
+    <!--<link rel="stylesheet" href="../static/css/style.css">-->
+    <!--<link rel="stylesheet" href="../static/bootstrap-3.3.5/css/bootstrap.css">-->
+
+</head>
+<script src="/layui/layui.js"></script>
+<script src="/bootstrap-3.3.5/js/bootstrap.js"></script>
+<script src="/js/show.js"></script>
+<script src="/jquery-ui-1.11.2/jquery-1.9.1.min.js"></script>
+<script src="/js/request.js"></script>
+
+<!--<script src="../static/layui/layui.js"></script>-->
+<!--<script src="../static/bootstrap-3.3.5/js/bootstrap.js"></script>-->
+<!--<script src="../static/js/show.js"></script>-->
+<!--<script src="../static/js/request.js"></script>-->
+<!--<script src="../static/jquery-ui-1.11.2/jquery-1.9.1.min.js"></script>-->
+<body>
+<div class="head">
+    <h2 class="title">接口调试工具</h2>
+</div>
+<div class="layui-row">
+    <div class="layui-col-xs3">
+        <div class="grid-demo grid-demo-bg1">&nbsp;</div>
+    </div>
+    <div class="layui-col-xs6 body">
+        <div class="http http-url">
+            <!--下拉选-->
+            <select class="body-param" id="body-select">
+                <option value="GET">GET</option>
+                <option value="POST">POST</option>
+                <option value="PUT">PUT</option>
+                <option value="DELETE">DELETE</option>
+            </select>
+            <!--地址栏-->
+            <input type="text" name="url" id="body-url" class="body-param" placeholder="http://">
+            <!--地址栏-->
+            <!--提交按钮-->
+            <input type="button" id="body-button" class="body-param" value="发送请求" onclick="http_client('发送请求')">
+            <!--提交按钮-->
+        </div>
+        <div class="http http-param">
+            <table id="param-table" border="1" >
+                <thead>
+                    <tr align="center">
+                        <td><h4>Body参数名称</h4></td>
+                        <td><h4>Body参数值</h4></td>
+                    </tr>
+                </thead>
+                <tbody id="param-body">
+                    <tr>
+                        <td align="center">
+                            <input type="text"   class="param-data" >
+                        </td>
+                        <td align="center">
+                            <input type="text"  class="param-data" >
+                            <input type="button"  class="delete-header" onclick="delete_label(this,'删除参数')" value="删除参数">
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" id="create-param" class="http-create-param" value="添加参数" onclick="create_label('添加参数')">
+                        <input type="button" id="create-request-body" class="http-bath-param" value="添加请求体" onclick="create_request_body('添加请求体')">
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+
+        </div>
+        <div class="http http-body" hidden>
+            <textarea id="request-body" rows="15" placeholder="此处是请求体内容区域"></textarea>
+        </div>
+        <div class="http http-header">
+            <table id="header-table" border="1">
+                <thead>
+                <tr align="center">
+                    <td><h4>header参数名称</h4></td>
+                    <td><h4>header参数值</h4></td>
+                </tr>
+                </thead>
+                <tbody id="header-body">
+                <tr>
+                    <td align="center">
+                        <input type="text"  class="param-data">
+                    </td>
+                    <td align="center">
+                        <input type="text"  class="param-data">
+                        <input type="button"  class="delete-header" onclick="delete_label(this,'删除请求头')" value="删除请求头">
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" id="create-header" class="http-create-header" value="添加请求头" onclick="create_label('添加请求头')">
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="http http-response">
+            <textarea id="response" rows="13" placeholder="此处是响应内容区域"></textarea>
+        </div>
+    </div>
+    <div class="layui-col-xs3">
+        <div class="grid-demo grid-demo-bg1">&nbsp;</div>
+    </div>
+</div>
+</body>
+</html>
